@@ -33,6 +33,7 @@ rm $sqlfile
 echo $zipfile | mailx -s 'Backup was successfully created' $recipient_email 
  
 find $backupfolder -mtime +$keep_day -delete
+find "$backupfolder" -type f -mtime +30 -exec rm {} \;
 
 
 ### after this in crontab -e, modify it -> in the end 
